@@ -1,0 +1,230 @@
+/*=========================
+ GOOGLE FONT
+==========================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f8fafc;
+    color:#222;
+    overflow-x:hidden;
+}
+
+/*=========================
+ NAVBAR
+==========================*/
+
+.navbar{
+    padding:15px 0;
+}
+
+.navbar-brand{
+    color:#0f766e !important;
+    font-weight:700;
+}
+
+.nav-link{
+    color:#444 !important;
+    font-weight:500;
+    margin:0 10px;
+    transition:.3s;
+}
+
+.nav-link:hover{
+    color:#0f766e !important;
+}
+
+.nav-link.active{
+    color:#0f766e !important;
+}
+
+.btn-success{
+    background:#0f766e;
+    border:none;
+}
+
+.btn-success:hover{
+    background:#115e59;
+}
+
+.btn-outline-success{
+    border:2px solid #0f766e;
+    color:#0f766e;
+}
+
+.btn-outline-success:hover{
+    background:#0f766e;
+    color:white;
+}
+
+
+/*=========================
+ HERO
+==========================*/
+
+.hero{
+    padding:140px 0 90px;
+}
+
+.hero h1{
+    font-size:60px;
+    font-weight:700;
+    line-height:1.2;
+}
+
+.hero p{
+    font-size:18px;
+    color:#666;
+}
+
+.hero img{
+    border-radius:20px;
+    transition:.4s;
+}
+
+.hero img:hover{
+    transform:scale(1.03);
+}
+
+
+/*=========================
+ FEATURES
+==========================*/
+
+.bg-light{
+    background:#f1f5f9 !important;
+}
+
+.fa-3x{
+    color:#0f766e;
+}
+
+section h2{
+    color:#0f766e;
+    font-weight:700;
+}
+
+section p{
+    color:#666;
+}
+
+
+/*=========================
+ ABOUT
+==========================*/
+
+#about img{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+    border-radius:20px;
+    transition:.4s;
+}
+
+#about img:hover{
+    transform:scale(1.03);
+}
+
+#about p{
+    line-height:1.8;
+}
+
+
+/*=========================
+ CONTACT
+==========================*/
+
+#contact i{
+    color:#0f766e;
+    margin-bottom:15px;
+}
+
+#contact h5{
+    font-weight:600;
+}
+
+
+/*=========================
+ FOOTER
+==========================*/
+
+footer{
+    background:#0f172a;
+    color:white;
+}
+
+footer h3{
+    color:#14b8a6;
+}
+
+footer a{
+    color:white;
+    text-decoration:none;
+}
+
+footer a:hover{
+    color:#14b8a6;
+}
+
+footer i{
+    font-size:24px;
+    transition:.3s;
+}
+
+footer i:hover{
+    color:#14b8a6;
+    transform:translateY(-5px);
+}
+
+
+/*=========================
+ BUTTONS
+==========================*/
+
+.btn{
+    border-radius:50px;
+    padding:10px 28px;
+    font-weight:500;
+}
+
+
+/*=========================
+ RESPONSIVE
+==========================*/
+
+@media(max-width:992px){
+
+.hero{
+    text-align:center;
+}
+
+.hero h1{
+    font-size:42px;
+}
+
+.hero img{
+    margin-top:40px;
+}
+
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:34px;
+}
+
+.hero{
+    padding-top:120px;
+}
+
+.navbar-brand{
+    font-size:28px;
+}
+
+}
