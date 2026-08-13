@@ -1,115 +1,205 @@
+```jsp
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="com.quickbite.model.Food"%>
-
-<%
-ArrayList<Food> foodList =
-(ArrayList<Food>) request.getAttribute("foodList");
-%>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Food Menu | QuickBite</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-rel="stylesheet">
-
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
 
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#f5f7fb;
+    margin:0;
+    background:#f5f7fa;
 }
 
-.navbar{
-background:#198754;
+/* HEADER */
+
+.menu-header{
+    background:linear-gradient(135deg,#198754,#28a745);
+    color:white;
+    padding:45px 20px 55px;
+    text-align:center;
 }
 
-.navbar-brand{
-font-size:28px;
-font-weight:700;
+.navbar-custom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    max-width:1200px;
+    margin:auto;
+    margin-bottom:45px;
 }
 
-.banner{
-background:linear-gradient(135deg,#198754,#28a745);
-color:white;
-padding:70px 0;
-text-align:center;
+.logo{
+    font-size:30px;
+    font-weight:700;
 }
 
-.banner h1{
-font-size:46px;
-font-weight:700;
+.back-btn{
+    background:white;
+    color:#222;
+    padding:10px 22px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:500;
 }
 
-.banner p{
-font-size:18px;
-margin-top:15px;
+.back-btn:hover{
+    background:#f1f1f1;
+    color:#198754;
 }
 
-.food-section{
-padding:60px 0;
+.menu-header h1{
+    font-size:45px;
+    font-weight:700;
+    margin-bottom:10px;
 }
+
+.menu-header p{
+    font-size:18px;
+    margin:0;
+}
+
+/* MENU */
+
+.menu-section{
+    padding:55px 0;
+}
+
+.category-title{
+    font-size:30px;
+    font-weight:700;
+    color:#198754;
+    margin-bottom:30px;
+    border-left:5px solid #198754;
+    padding-left:15px;
+}
+
+/* FOOD CARD */
 
 .food-card{
-border:none;
-border-radius:18px;
-overflow:hidden;
-transition:.3s;
+    border:none;
+    border-radius:20px;
+    overflow:hidden;
+    background:white;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    height:100%;
+    transition:.3s;
 }
 
 .food-card:hover{
-transform:translateY(-8px);
-box-shadow:0 15px 35px rgba(0,0,0,.15);
+    transform:translateY(-7px);
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
 }
 
 .food-card img{
-width:100%;
-height:230px;
-object-fit:cover;
-display:block;
+    width:100%;
+    height:220px;
+    object-fit:cover;
 }
 
-.category{
-display:inline-block;
-background:#198754;
-color:white;
-padding:5px 14px;
-border-radius:20px;
-font-size:13px;
-margin-bottom:10px;
+.food-body{
+    padding:20px;
+}
+
+.food-name{
+    font-size:20px;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.food-description{
+    color:#777;
+    font-size:14px;
+    min-height:45px;
 }
 
 .price{
-font-size:22px;
-font-weight:bold;
-color:#198754;
+    color:#198754;
+    font-size:21px;
+    font-weight:700;
+}
+
+.login-btn{
+    background:#198754;
+    color:white;
+    border:none;
+    border-radius:25px;
+    padding:9px 18px;
+    text-decoration:none;
+    font-size:14px;
+    display:inline-block;
+}
+
+.login-btn:hover{
+    background:#146c43;
+    color:white;
+}
+
+/* OFFER */
+
+.offer{
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    margin-bottom:50px;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+    text-align:center;
+}
+
+.offer i{
+    font-size:40px;
+    color:#198754;
+    margin-bottom:12px;
+}
+
+.offer h3{
+    font-weight:700;
+}
+
+/* FOOTER */
+
+footer{
+    background:#212529;
+    color:white;
+    padding:30px 0;
+    margin-top:30px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .menu-header h1{
+        font-size:32px;
+    }
+
+    .navbar-custom{
+        margin-bottom:30px;
+    }
+
+    .logo{
+        font-size:24px;
+    }
+
 }
 
 </style>
@@ -118,254 +208,695 @@ color:#198754;
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark">
+<!-- HEADER -->
+
+<header class="menu-header">
+
+    <div class="navbar-custom">
+
+        <div class="logo">
+            <i class="fa-solid fa-utensils me-2"></i>
+            QuickBite
+        </div>
+
+        <a href="index.html" class="back-btn">
+            <i class="fa-solid fa-arrow-left me-2"></i>
+            Back
+        </a>
+
+    </div>
+
+    <h1>Our Delicious Food Menu</h1>
+
+    <p>Fresh • Delicious • Affordable</p>
+
+</header>
+
+
+<!-- MENU -->
+
+<section class="menu-section">
 
 <div class="container">
 
-<a class="navbar-brand"
-href="dashboard.jsp">
+<!-- OFFER -->
 
-<i class="fa-solid fa-utensils me-2"></i>
+<div class="offer">
 
-QuickBite
+    <i class="fa-solid fa-bowl-food"></i>
 
-</a>
+    <h3>Something Delicious Is Waiting For You!</h3>
 
-<a href="dashboard.jsp"
-class="btn btn-light rounded-pill">
-
-<i class="fa-solid fa-arrow-left me-2"></i>
-
-Back
-
-</a>
+    <p class="text-secondary mb-0">
+        Enjoy delicious meals, snacks and desserts at affordable student-friendly prices.
+    </p>
 
 </div>
 
-</nav>
 
-<section class="banner">
+<!-- MAIN COURSE -->
 
-<div class="container">
+<h2 class="category-title">
+    <i class="fa-solid fa-utensils me-2"></i>
+    Main Course
+</h2>
 
-<h1>
+<div class="row g-4 mb-5">
 
-Our Delicious Food Menu
 
-</h1>
-
-<p>
-
-Fresh • Healthy • Affordable
-
-</p>
-
-</div>
-
-</section>
-
-<section class="food-section">
-
-<div class="container">
-
-<div class="row g-4">
-    <%
-
-if(foodList != null && !foodList.isEmpty()){
-
-for(Food food : foodList){
-
-%>
+<!-- Fried Rice -->
 
 <div class="col-lg-4 col-md-6">
+<div class="food-card">
 
-<div class="card food-card shadow h-100">
+<img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=700"
+     alt="Chicken Fried Rice">
 
-<img src="<%=food.getImage()%>"
-class="card-img-top"
-alt="<%=food.getFoodName()%>">
+<div class="food-body">
 
-<div class="card-body">
+<div class="food-name">Chicken Fried Rice</div>
 
-<span class="category">
-
-<%=food.getCategory()%>
-
-</span>
-
-<h4 class="mt-2 fw-bold">
-
-<%=food.getFoodName()%>
-
-</h4>
-
-<p class="text-muted">
-
-<%=food.getDescription()%>
-
+<p class="food-description">
+    Fragrant fried rice cooked with chicken, vegetables and special spices.
 </p>
 
-<div class="d-flex justify-content-between align-items-center mt-3">
+<div class="d-flex justify-content-between align-items-center">
 
-<span class="price">
+<span class="price">৳220</span>
 
-৳ <%=food.getPrice()%>
-
-</span>
-
-<a href="AddToCartServlet?id=<%=food.getFoodId()%>"
-class="btn btn-success rounded-pill">
-
-<i class="fa-solid fa-cart-plus me-1"></i>
-
-Add To Cart
-
+<a href="login.jsp" class="login-btn">
+    <i class="fa-solid fa-right-to-bracket me-1"></i>
+    Login to Order
 </a>
 
 </div>
 
 </div>
-
+</div>
 </div>
 
-</div>
 
-<%
+<!-- Chicken Curry -->
 
-}
+<div class="col-lg-4 col-md-6">
+<div class="food-card">
 
-}else{
+<img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=700"
+     alt="Chicken Curry">
 
-%>
-<div class="col-12">
+<div class="food-body">
 
-<div class="alert alert-warning text-center p-5">
+<div class="food-name">Chicken Curry</div>
 
-<i class="fa-solid fa-circle-exclamation fa-3x mb-3 text-warning"></i>
-
-<h3>
-
-No Food Available
-
-</h3>
-
-<p>
-
-There are currently no food items available.
-
-Please check again later.
-
+<p class="food-description">
+    Tender chicken cooked in a rich and flavorful curry sauce.
 </p>
 
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">৳200</span>
+
+<a href="login.jsp" class="login-btn">
+    <i class="fa-solid fa-right-to-bracket me-1"></i>
+    Login to Order
+</a>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- Creamy Pasta -->
+
+<div class="col-lg-4 col-md-6">
+<div class="food-card">
+
+<img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=700"
+     alt="Creamy Chicken Pasta">
+
+<div class="food-body">
+
+<div class="food-name">Creamy Chicken Pasta</div>
+
+<p class="food-description">
+    Creamy pasta tossed with chicken, herbs and delicious sauce.
+</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">৳230</span>
+
+<a href="login.jsp" class="login-btn">
+    <i class="fa-solid fa-right-to-bracket me-1"></i>
+    Login to Order
+</a>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- Chicken Chow Mein -->
+
+<div class="col-lg-4 col-md-6">
+<div class="food-card">
+
+<img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=700"
+     alt="Chicken Chow Mein">
+
+<div class="food-body">
+
+<div class="food-name">Chicken Chow Mein</div>
+
+<p class="food-description">
+    Stir-fried noodles with chicken and fresh crunchy vegetables.
+</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">৳210</span>
+
+<a href="login.jsp" class="login-btn">
+    <i class="fa-solid fa-right-to-bracket me-1"></i>
+    Login to Order
+</a>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- Grilled Fish -->
+
+<div class="col-lg-4 col-md-6">
+<div class="food-card">
+
+<img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=700"
+     alt="Grilled Fish">
+
+<div class="food-body">
+
+<div class="food-name">Grilled Fish</div>
+
+<p class="food-description">
+    Fresh grilled fish served with vegetables and a special sauce.
+</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">৳280</span>
+
+<a href="login.jsp" class="login-btn">
+    <i class="fa-solid fa-right-to-bracket me-1"></i>
+    Login to Order
+</a>
+
+</div>
+
+</div>
+</div>
 </div>
 
 </div>
 
-<%
 
-}
+<!-- SNACKS -->
 
-%>
+<h2 class="category-title">
 
-</div>
-
-</div>
-
-</section>
-<!-- Today's Best Picks -->
-
-<section class="py-5 bg-light">
-
-<div class="container">
-
-<div class="text-center mb-5">
-
-<h2 class="fw-bold">
-
-Chef's Special
+    <i class="fa-solid fa-cookie-bite me-2"></i>
+    Snacks & Fast Food
 
 </h2>
 
-<p class="text-muted">
+<div class="row g-4 mb-5">
 
-Freshly prepared meals loved by our customers.
 
+<!-- Pizza -->
+
+<div class="col-lg-4 col-md-6">
+<div class="food-card">
+
+<img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=700"
+     alt="Cheese Pizza">
+
+<div class="food-body">
+
+<div class="food-name">Cheese Pizza</div>
+
+<p class="food-description">
+    Crispy pizza topped with rich tomato sauce and melted cheese.
 </p>
 
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">৳350</span>
+
+<a href="login.jsp" class="login-btn">
+    <i class="fa-solid fa-right-to-bracket me-1"></i>
+    Login to Order
+</a>
+
 </div>
+
+</div>
+</div>
+</div>
+
+
+<!-- French Fries -->
+
+<div class="col-lg-4 col-md-6">
+<div class="food-card">
+
+<img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=700"
+     alt="French Fries">
+
+<div class="food-body">
+
+<div class="food-name">French Fries</div>
+
+<p class="food-description">
+    Crispy golden potato fries served hot and fresh.
+</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">৳100</span>
+
+<a href="login.jsp" class="login-btn">
+    <i class="fa-solid fa-right-to-bracket me-1"></i>
+    Login to Order
+</a>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- Chicken Sandwich -->
+
+<div class="col-lg-4 col-md-6">
+<div class="food-card">
+
+<img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=700"
+     alt="Chicken Sandwich">
+
+<div class="food-body">
+
+<div class="food-name">Chicken Sandwich</div>
+
+<p class="food-description">
+    Fresh bread filled with chicken, vegetables and creamy sauce.
+</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">৳150</span>
+
+<a href="login.jsp" class="login-btn">
+    <i class="fa-solid fa-right-to-bracket me-1"></i>
+    Login to Order
+</a>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- Samosa -->
+
+<div class="col-lg-4 col-md-6">
+<div class="food-card">
+
+<img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=700"
+     alt="Samosa">
+
+<div class="food-body">
+
+<div class="food-name">Samosa</div>
+
+<p class="food-description">
+    Crispy golden samosa filled with delicious spiced potatoes.
+</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">৳40</span>
+
+<a href="login.jsp" class="login-btn">
+    <i class="fa-solid fa-right-to-bracket me-1"></i>
+    Login to Order
+</a>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- Chicken Roll -->
+
+<div class="col-lg-4 col-md-6">
+<div class="food-card">
+
+<img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=700"
+     alt="Chicken Roll">
+
+<div class="food-body">
+
+<div class="food-name">Chicken Roll</div>
+
+<p class="food-description">
+    Soft wrap filled with spicy chicken, vegetables and sauce.
+</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">৳130</span>
+
+<a href="login.jsp" class="login-btn">
+    <i class="fa-solid fa-right-to-bracket me-1"></i>
+    Login to Order
+</a>
+
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+
+
+<!-- DESSERTS -->
+
+<h2 class="category-title">
+
+    <i class="fa-solid fa-ice-cream me-2"></i>
+    Desserts
+
+</h2>
 
 <div class="row g-4">
 
-<div class="col-lg-4">
 
-<div class="card border-0 shadow h-100">
+<!-- Chocolate Cake -->
 
-<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80"
-class="card-img-top"
-style="height:220px;object-fit:cover;">
+<div class="col-lg-4 col-md-6">
+<div class="food-card">
 
-<div class="card-body text-center">
+<img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=700"
+     alt="Chocolate Cake">
 
-<h4>Chicken Burger</h4>
+<div class="food-body">
 
-<p class="text-muted">
+<div class="food-name">Chocolate Cake</div>
 
-Juicy grilled chicken burger with fresh vegetables and cheese.
-
+<p class="food-description">
+    Soft chocolate cake covered with creamy chocolate frosting.
 </p>
 
-</div>
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">৳180</span>
+
+<a href="login.jsp" class="login-btn">
+    <i class="fa-solid fa-right-to-bracket me-1"></i>
+    Login to Order
+</a>
 
 </div>
 
 </div>
+</div>
+</div>
 
-<div class="col-lg-4">
 
-<div class="card border-0 shadow h-100">
+<!-- Red Velvet -->
 
-<img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80"
-class="card-img-top"
-style="height:220px;object-fit:cover;">
+<div class="col-lg-4 col-md-6">
+<div class="food-card">
 
-<div class="card-body text-center">
+<img src="https://images.unsplash.com/photo-1586788224331-947f68671cf1?w=700"
+     alt="Red Velvet Cake">
 
-<h4>Italian Pizza</h4>
+<div class="food-body">
 
-<p class="text-muted">
+<div class="food-name">Red Velvet Cake</div>
 
-Loaded with mozzarella cheese and premium toppings.
-
+<p class="food-description">
+    Soft red velvet cake with smooth cream cheese frosting.
 </p>
 
-</div>
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">৳220</span>
+
+<a href="login.jsp" class="login-btn">
+    <i class="fa-solid fa-right-to-bracket me-1"></i>
+    Login to Order
+</a>
 
 </div>
 
 </div>
+</div>
+</div>
 
-<div class="col-lg-4">
 
-<div class="card border-0 shadow h-100">
+<!-- Cheesecake -->
 
-<img src="https://images.unsplash.com/photo-1604908176997-431f2b47b0b5?auto=format&fit=crop&w=800&q=80"
-class="card-img-top"
-style="height:220px;object-fit:cover;">
+<div class="col-lg-4 col-md-6">
+<div class="food-card">
 
-<div class="card-body text-center">
+<img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=700"
+     alt="Classic Cheesecake">
 
-<h4>Chicken Fried Rice</h4>
+<div class="food-body">
 
-<p class="text-muted">
+<div class="food-name">Classic Cheesecake</div>
 
-Delicious fried rice served with tender chicken pieces.
-
+<p class="food-description">
+    Creamy cheesecake with a delicious crunchy biscuit base.
 </p>
 
-</div>
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">৳250</span>
+
+<a href="login.jsp" class="login-btn">
+    <i class="fa-solid fa-right-to-bracket me-1"></i>
+    Login to Order
+</a>
 
 </div>
 
+</div>
+</div>
+</div>
+
+
+<!-- Brownie -->
+
+<div class="col-lg-4 col-md-6">
+<div class="food-card">
+
+<img src="https://images.unsplash.com/photo-1564355808539-22fda35bed7e?w=700"
+     alt="Chocolate Brownie">
+
+<div class="food-body">
+
+<div class="food-name">Chocolate Brownie</div>
+
+<p class="food-description">
+    Warm fudgy brownie with a rich chocolate flavor.
+</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">৳150</span>
+
+<a href="login.jsp" class="login-btn">
+    <i class="fa-solid fa-right-to-bracket me-1"></i>
+    Login to Order
+</a>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- Waffle -->
+
+<div class="col-lg-4 col-md-6">
+<div class="food-card">
+
+<img src="https://images.unsplash.com/photo-1562376552-0d160a2f238d?w=700"
+     alt="Belgian Waffle">
+
+<div class="food-body">
+
+<div class="food-name">Belgian Waffle</div>
+
+<p class="food-description">
+    Crispy golden waffle topped with chocolate and fresh fruits.
+</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">৳180</span>
+
+<a href="login.jsp" class="login-btn">
+    <i class="fa-solid fa-right-to-bracket me-1"></i>
+    Login to Order
+</a>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- Pancake -->
+
+<div class="col-lg-4 col-md-6">
+<div class="food-card">
+
+<img src="https://images.unsplash.com/photo-1528207776546-365bb710ee93?w=700"
+     alt="Fluffy Pancake">
+
+<div class="food-body">
+
+<div class="food-name">Fluffy Pancake</div>
+
+<p class="food-description">
+    Soft pancakes served with chocolate sauce and fresh fruits.
+</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">৳170</span>
+
+<a href="login.jsp" class="login-btn">
+    <i class="fa-solid fa-right-to-bracket me-1"></i>
+    Login to Order
+</a>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- Donut -->
+
+<div class="col-lg-4 col-md-6">
+<div class="food-card">
+
+<img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=700"
+     alt="Glazed Donut">
+
+<div class="food-body">
+
+<div class="food-name">Glazed Donut</div>
+
+<p class="food-description">
+    Soft and delicious glazed donut with a sweet topping.
+</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">৳100</span>
+
+<a href="login.jsp" class="login-btn">
+    <i class="fa-solid fa-right-to-bracket me-1"></i>
+    Login to Order
+</a>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- Ice Cream -->
+
+<div class="col-lg-4 col-md-6">
+<div class="food-card">
+
+<img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=700"
+     alt="Ice Cream Sundae">
+
+<div class="food-body">
+
+<div class="food-name">Ice Cream Sundae</div>
+
+<p class="food-description">
+    Creamy vanilla ice cream topped with chocolate sauce and nuts.
+</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">৳160</span>
+
+<a href="login.jsp" class="login-btn">
+    <i class="fa-solid fa-right-to-bracket me-1"></i>
+    Login to Order
+</a>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- Tiramisu -->
+
+<div class="col-lg-4 col-md-6">
+<div class="food-card">
+
+<img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=700"
+     alt="Tiramisu">
+
+<div class="food-body">
+
+<div class="food-name">Tiramisu</div>
+
+<p class="food-description">
+    Classic Italian dessert with coffee, mascarpone and cocoa.
+</p>
+
+<div class="d-flex justify-content-between align-items-center">
+
+<span class="price">৳250</span>
+
+<a href="login.jsp" class="login-btn">
+    <i class="fa-solid fa-right-to-bracket me-1"></i>
+    Login to Order
+</a>
+
+</div>
+
+</div>
+</div>
 </div>
 
 </div>
@@ -373,163 +904,26 @@ Delicious fried rice served with tender chicken pieces.
 </div>
 
 </section>
-<footer class="bg-dark text-white mt-5 py-5">
 
-<div class="container">
 
-<div class="row">
+<!-- FOOTER -->
 
-<div class="col-lg-6">
+<footer>
 
-<h3 class="fw-bold">
+<div class="container text-center">
 
-<i class="fa-solid fa-utensils me-2"></i>
+    <h4 class="fw-bold">
+        <i class="fa-solid fa-utensils me-2"></i>
+        QuickBite
+    </h4>
 
-QuickBite
+    <p class="mb-1">
+        Smart University Cafeteria Management System
+    </p>
 
-</h3>
-
-<p class="mt-3">
-
-QuickBite Smart Cafeteria Management System makes ordering
-food easier, faster and more convenient.
-
-Enjoy fresh meals without waiting in long queues.
-
-</p>
-
-</div>
-
-<div class="col-lg-3">
-
-<h5 class="mb-3">
-
-Quick Links
-
-</h5>
-
-<ul class="list-unstyled">
-
-<li class="mb-2">
-
-<a href="dashboard.jsp"
-class="text-white text-decoration-none">
-
-Home
-
-</a>
-
-</li>
-
-<li class="mb-2">
-
-<a href="FoodServlet"
-class="text-white text-decoration-none">
-
-Food Menu
-
-</a>
-
-</li>
-
-<li class="mb-2">
-
-<a href="CartServlet"
-class="text-white text-decoration-none">
-
-My Cart
-
-</a>
-
-</li>
-
-<li class="mb-2">
-
-<a href="OrderServlet"
-class="text-white text-decoration-none">
-
-My Orders
-
-</a>
-
-</li>
-
-</ul>
-
-</div>
-
-<div class="col-lg-3">
-
-<h5 class="mb-3">
-
-Contact
-
-</h5>
-
-<p>
-
-<i class="fa-solid fa-location-dot me-2"></i>
-
-Sylhet Engineering College
-
-</p>
-
-<p>
-
-<i class="fa-solid fa-phone me-2"></i>
-
-+880 1700-000000
-
-</p>
-
-<p>
-
-<i class="fa-solid fa-envelope me-2"></i>
-
-info@quickbite.com
-
-</p>
-
-<div class="mt-3">
-
-<a href="#" class="text-white me-3">
-
-<i class="fab fa-facebook fa-lg"></i>
-
-</a>
-
-<a href="#" class="text-white me-3">
-
-<i class="fab fa-instagram fa-lg"></i>
-
-</a>
-
-<a href="#" class="text-white me-3">
-
-<i class="fab fa-twitter fa-lg"></i>
-
-</a>
-
-<a href="#" class="text-white">
-
-<i class="fab fa-linkedin fa-lg"></i>
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<hr class="my-4">
-
-<p class="text-center mb-0">
-
-© 2026 QuickBite Smart Cafeteria Management System.
-All Rights Reserved.
-
-</p>
+    <small>
+        © 2026 QuickBite. All Rights Reserved.
+    </small>
 
 </div>
 
@@ -538,5 +932,5 @@ All Rights Reserved.
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
-
 </html>
+```
